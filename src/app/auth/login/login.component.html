@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="login-form">
+    <h3>Welcome</h3>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <input class="input-field" formControlName="email" />
+      <input class="input-field" formControlName="password" />
+      <button class="btn-primary" type="submit" [disabled]="form.invalid">Enter</button>
+    </form>
+  </div>
+</div>

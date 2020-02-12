@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+
+.header {
+  display: flex;
+  //   border: thin solid black;
+  background-color: $main-color;
+  color: $font-color;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgba($color: gray, $alpha: 1);
+}
+.content {
+  padding: 20px;
+  height: 80vh;
+}
+.footer {
+  height: 13vh;
+  //   border: thin solid black;
+  background-color: $main-color;
+  //   box-shadow: 5px 5px 10px rgba($color: gray, $alpha: 1);
+}
+.footer-text {
+  color: $font-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.action-icon {
+  cursor: pointer;
+}
