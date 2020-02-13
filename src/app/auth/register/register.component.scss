@@ -1,0 +1,51 @@
+@import '../../../styles/variables';
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-form {
+  font-family: sans-serif;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 5px 5px 5px #d8d8d8;
+  border-radius: $radius;
+  background-color: $main-color;
+  min-width: 25%;
+}
+.input-field {
+  display: block;
+  margin: 5px 0;
+  padding: 7px 5px;
+  width: 100%;
+  border-radius: $radius;
+  border: none;
+  outline: none;
+}
+.btn-primary {
+  display: block;
+  margin: 10px auto;
+  outline: none;
+  border-radius: $radius;
+  padding: 5px 20px;
+  background-color: #fff;
+}
+.btn-primary:active {
+  box-shadow: 1px 1px 3px #a3a3a3;
+}
+
+.input-field-valid {
+  border-left: thick solid green;
+}
+.input-field-invalid {
+  border-left: thick solid red;
+}
+.input-error {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+  color: #fff;
+}

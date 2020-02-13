@@ -1,1 +1,47 @@
-<p>register works!</p>
+<div class="container">
+  <div class="login-form">
+    <h3>Register</h3>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <input
+        [ngClass]="{
+          'input-field-invalid': form.get('email').touched && form.get('email').invalid,
+          'input-field-valid': form.get('email').touched && form.get('email').valid
+        }"
+        class="input-field"
+        formControlName="email"
+        autocomplete="new"
+        type="email"
+        placeholder="email"
+      />
+
+      <input
+        #password
+        [ngClass]="{
+          'input-field-invalid': form.get('password').touched && form.get('password').invalid,
+          'input-field-valid': form.get('password').touched && form.get('password').valid
+        }"
+        class="input-field"
+        formControlName="password"
+        type="password"
+        autocomplete="new"
+        placeholder="password"
+      />
+      <input
+        #confirm
+        [ngClass]="{
+          'input-field-invalid': password.value !== confirm.value,
+          'input-field-valid': password.value && form.get('confirm').touched && form.get('confirm').valid
+        }"
+        class="input-field"
+        formControlName="confirm"
+        type="password"
+        autocomplete="new"
+        placeholder="confirm"
+      />
+      <small class="input-error" *ngIf="form.get('email').touched && form.get('email').invalid">Укажите корректный email</small>
+      <small class="input-error" *ngIf="form.get('password').touched && form.get('password').invalid">Укажите пароль</small>
+      <small class="input-error" *ngIf="form.invalid && form.hasError('mismatch')">Введенные пароли не совпадают</small>
+      <button class="btn-primary" type="submit" [disabled]="form.invalid">Enter</button>
+    </form>
+  </div>
+</div>

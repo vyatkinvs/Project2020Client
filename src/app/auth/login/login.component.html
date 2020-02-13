@@ -1,9 +1,30 @@
 <div class="container">
   <div class="login-form">
-    <h3>Welcome</h3>
+    <h3>Login</h3>
     <form [formGroup]="form" (ngSubmit)="submitForm()">
-      <input class="input-field" formControlName="email" />
-      <input class="input-field" formControlName="password" />
+      <input
+        [ngClass]="{
+          'input-field-invalid': form.get('email').touched && form.get('email').invalid,
+          'input-field-valid': form.get('email').touched && form.get('email').valid
+        }"
+        class="input-field"
+        formControlName="email"
+        autocomplete="new"
+        type="email"
+      />
+
+      <input
+        [ngClass]="{
+          'input-field-invalid': form.get('password').touched && form.get('password').invalid,
+          'input-field-valid': form.get('password').touched && form.get('password').valid
+        }"
+        class="input-field"
+        formControlName="password"
+        type="password"
+        autocomplete="new"
+      />
+      <small class="input-error" *ngIf="form.get('email').touched && form.get('email').invalid">Укажите корректный email</small>
+      <small class="input-error" *ngIf="form.get('password').touched && form.get('password').invalid">Укажите пароль</small>
       <button class="btn-primary" type="submit" [disabled]="form.invalid">Enter</button>
     </form>
   </div>
