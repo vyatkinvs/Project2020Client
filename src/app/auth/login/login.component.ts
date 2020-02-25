@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor() {}
+  constructor(private readonly authSrv: AuthService) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     if (this.form.valid) {
-      console.log(this.form.value);
+      this.authSrv.login(this.form.value).subscribe(result => console.log(JSON.stringify(result)));
     }
   }
 }

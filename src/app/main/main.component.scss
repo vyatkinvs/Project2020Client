@@ -2,7 +2,6 @@
 
 .header {
   display: flex;
-  //   border: thin solid black;
   background-color: $main-color;
   color: $font-color;
   padding: 10px;
@@ -14,9 +13,7 @@
 }
 .footer {
   height: 13vh;
-  //   border: thin solid black;
   background-color: $main-color;
-  //   box-shadow: 5px 5px 10px rgba($color: gray, $alpha: 1);
 }
 .footer-text {
   color: $font-color;
@@ -26,4 +23,11 @@
 }
 .action-icon {
   cursor: pointer;
+}
+.message-bar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: inline-block;
 }

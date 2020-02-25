@@ -9,7 +9,6 @@
         }"
         class="input-field"
         formControlName="email"
-        autocomplete="new"
         type="email"
       />
 
@@ -21,7 +20,6 @@
         class="input-field"
         formControlName="password"
         type="password"
-        autocomplete="new"
       />
       <small class="input-error" *ngIf="form.get('email').touched && form.get('email').invalid">Укажите корректный email</small>
       <small class="input-error" *ngIf="form.get('password').touched && form.get('password').invalid">Укажите пароль</small>
