@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="login-form">
+  <div class="input-form">
     <h3>Login</h3>
     <form [formGroup]="form" (ngSubmit)="submitForm()">
       <input
@@ -23,7 +23,8 @@
       />
       <small class="input-error" *ngIf="form.get('email').touched && form.get('email').invalid">Укажите корректный email</small>
       <small class="input-error" *ngIf="form.get('password').touched && form.get('password').invalid">Укажите пароль</small>
-      <button class="btn-primary" type="submit" [disabled]="form.invalid">Enter</button>
+      <span class="link-label pointing-finger" routerLink="/register" routerLinkActive="active">Don`t have account yet?</span>
+      <button class="btn" type="submit" [disabled]="form.invalid">Enter</button>
     </form>
   </div>
 </div>

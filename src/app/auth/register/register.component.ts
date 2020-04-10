@@ -1,5 +1,8 @@
+import { Login } from './../login-dto';
+import { AuthService } from './../auth.service';
 import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterComponent implements OnInit {
   form: FormGroup;
 
-  constructor() {}
+  constructor(private readonly authSrv: AuthService, private readonly router: Router) {}
 
   ngOnInit(): void {
     this.form = new FormGroup(
@@ -25,7 +28,7 @@ export class RegisterComponent implements OnInit {
   submitForm(): void {
     this.form.updateValueAndValidity();
     if (this.form.valid) {
-      console.log(this.form.value);
+      this.authSrv.register(this.form.value).subscribe(user => this.router.navigateByUrl('/login'));
     }
   }
 

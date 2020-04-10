@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,18 +11,20 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private readonly authSrv: AuthService) {}
+  constructor(private readonly authSrv: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
+      email: new FormControl('test@email.com', [Validators.required, Validators.email]),
+      password: new FormControl('test', [Validators.required]),
     });
   }
 
   submitForm(): void {
     if (this.form.valid) {
-      this.authSrv.login(this.form.value).subscribe(result => console.log(JSON.stringify(result)));
+      this.authSrv.login(this.form.value).subscribe(result => {
+        this.router.navigateByUrl('work');
+      });
     }
   }
 }

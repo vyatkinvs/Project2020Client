@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="login-form">
+  <div class="input-form">
     <h3>Register</h3>
     <form [formGroup]="form" (ngSubmit)="submitForm()">
       <input
@@ -41,7 +41,7 @@
       <small class="input-error" *ngIf="form.get('email').touched && form.get('email').invalid">Укажите корректный email</small>
       <small class="input-error" *ngIf="form.get('password').touched && form.get('password').invalid">Укажите пароль</small>
       <small class="input-error" *ngIf="form.invalid && form.hasError('mismatch')">Введенные пароли не совпадают</small>
-      <button class="btn-primary" type="submit" [disabled]="form.invalid">Enter</button>
+      <button class="btn" type="submit" [disabled]="form.invalid">Enter</button>
     </form>
   </div>
 </div>

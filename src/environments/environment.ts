@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  authUrl: 'http://localhost:3000/auth/login',
+  authUrl: 'http://localhost:3000/auth/',
+  clearMessages: 3000,
 };
 
 /*

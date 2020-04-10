@@ -1,0 +1,12 @@
+.input-field-valid {
+  border-left: thick solid green;
+}
+.input-field-invalid {
+  border-left: thick solid red;
+}
+.input-error {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+  color: #fff;
+}

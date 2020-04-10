@@ -1,6 +1,7 @@
+import { AuthService } from './../auth/auth.service';
 import { ReportService } from './../services/report.service';
 import { Component, OnInit } from '@angular/core';
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,12 +11,18 @@ import { Observable } from 'rxjs';
 })
 export class MainComponent implements OnInit {
   loginIcon = faSignInAlt;
+  logoutIcon = faSignOutAlt;
 
   messages: Observable<string>;
+  isAuth: Observable<boolean>;
 
-  constructor(private readonly reportSrv: ReportService) {}
+  constructor(private readonly reportSrv: ReportService, private readonly authSrv: AuthService) {}
 
   ngOnInit(): void {
     this.messages = this.reportSrv.getMessage();
+    this.isAuth = this.authSrv.isAuth;
+  }
+  logout() {
+    this.authSrv.logout();
   }
 }

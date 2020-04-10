@@ -1,0 +1,44 @@
+.btn-primary {
+  margin: auto;
+  display: block;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  border-radius: $radius;
+  padding: 0.5rem 2rem;
+  background-color: #fff;
+}
+
+.link-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: inline-block;
+  margin: 0.5rem 0;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.btn {
+  & {
+    margin: auto;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    display: block;
+    border-radius: $radius;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.4);
+  }
+  &:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.4);
+  }
+}

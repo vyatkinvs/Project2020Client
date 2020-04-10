@@ -1,0 +1,12 @@
+.content {
+  padding: 20px;
+  height: 84vh;
+}
+
+.message-bar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: inline-block;
+}

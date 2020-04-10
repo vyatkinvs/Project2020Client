@@ -12,7 +12,7 @@ import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent, MainComponent, PageNotFoundComponent, WorkComponent],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, AuthModule, HttpClientModule],
+  imports: [BrowserModule, AuthModule, AppRoutingModule, FontAwesomeModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
